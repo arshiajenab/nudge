@@ -1692,6 +1692,8 @@ nav {
     .player-volume {
         position: absolute;
         bottom: 40px;
+        padding: 0px 0px;
+        border-radius: 10px;
     }
 
     /* Bottom: Controls and Seek bar take full width */

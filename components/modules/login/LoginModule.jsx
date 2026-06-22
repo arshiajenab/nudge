@@ -13,7 +13,6 @@ export default function LoginModule() {
         setLoading(true);
         try {
             const zodResult = zodVerify(user);
-            console.log(zodResult);
 
             if (!zodResult.success) {
                 setLoading(false);
@@ -54,7 +53,6 @@ export default function LoginModule() {
         setLoading(true);
         try {
             const zodResult = zodVerify(user);
-            console.log(zodResult);
 
             if (!zodResult.success) {
                 setLoading(false);
@@ -62,6 +60,7 @@ export default function LoginModule() {
                     return setError("Email is invalid");
                 if (zodResult.error.issues[0].path[0] == "password")
                     return setError("Password is invalid");
+                return setError("Invalid input")
             }
 
             const res = await fetch("/api/login", {
@@ -70,8 +69,6 @@ export default function LoginModule() {
                 body: JSON.stringify({ ...user }),
             });
             const data = await res.json();
-            console.log(res);
-            console.log(data);
             if (!res.ok) {
                 return setError(
                     data?.error?._message ||
@@ -135,4 +132,3 @@ export default function LoginModule() {
         </div>
     );
 }
-4;
