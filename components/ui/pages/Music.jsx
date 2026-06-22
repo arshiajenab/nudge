@@ -219,6 +219,7 @@ export default function Music() {
                                           display: "flex",
                                           gap: "16px",
                                           alignItems: "flex-start",
+                                          width: "100%",
                                       }}
                                   >
                                       <div
@@ -235,7 +236,10 @@ export default function Music() {
                                               : "▶"}
                                       </div>
 
-                                      <div className="result-info">
+                                      <div
+                                          className="result-info "
+                                          style={{ flex: 1 }}
+                                      >
                                           <div className="result-title">
                                               {res.title}
                                           </div>

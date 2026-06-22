@@ -33,17 +33,26 @@ export function PlayerProvider({ children }) {
 
     // ── create / swap the player whenever the song changes ──
     useEffect(() => {
-        if (!currentSong?.videoId) return;
+        if (!currentSong?.videoId) {
+            if (playerRef.current && playerRef.current.stopVideo) {
+                try {
+                    playerRef.current.pauseVideo();
+                    playerRef.current.stopVideo();
+                    playerRef.current.cueVideoById(""); 
+                } catch (e) {
+                    console.error("Error stopping video", e);
+                }
+            }
+            return;
+        }
 
         function createPlayer() {
-            // If player already exists, just load the new video
             if (playerRef.current && playerRef.current.loadVideoById) {
                 playerRef.current.loadVideoById(currentSong.videoId);
                 playerRef.current.playVideo();
                 return;
             }
 
-            // 2. Create an inner div for YT to destroy, keeping containerRef safe for React
             const playerContainer = document.createElement("div");
             containerRef.current.appendChild(playerContainer);
 
@@ -75,12 +84,7 @@ export function PlayerProvider({ children }) {
                             setProgress(0);
                         }
 
-                        // AUTPLAY FIX:
-                        // If it's unstarted/cued right after we told it to play,
-                        // the browser blocked autoplay. Force it to play.
                         if (e.data === -1 || e.data === 5) {
-                            // We use a small timeout to prevent an infinite loop
-                            // just in case the browser is super strict
                             setTimeout(() => {
                                 if (
                                     playerRef.current &&
@@ -177,9 +181,17 @@ export function PlayerProvider({ children }) {
     // 3. As you requested, just pause and set currentSong to null.
     // Because we use containerRef, React won't crash when this hides the UI.
     function closePlayer() {
-        if (isReady && playerRef.current?.stopVideo) {
-            playerRef.current.stopVideo();
+        // 1. Force pause and stop BEFORE clearing the state
+        if (isReady && playerRef.current) {
+            try {
+                playerRef.current.pauseVideo();
+                playerRef.current.stopVideo();
+            } catch (e) {
+                console.error("Error stopping video", e);
+            }
         }
+
+        // 2. Clear the UI state
         setCurrentSong(null);
         setIsPlaying(false);
         setProgress(0);
