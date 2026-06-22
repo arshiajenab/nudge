@@ -17,6 +17,19 @@ export default async function Saved() {
     const { musicSaved } = await GetSaved();
     return (
         <div id="saved" className="dash-section">
+            <div style={{ marginBottom: "16px" }}>
+                <Link
+                    href="/panel"
+                    style={{
+                        color: "inherit",
+                        textDecoration: "none",
+                        fontSize: "14px",
+                        opacity: 0.7,
+                    }}
+                >
+                    ← back to panel
+                </Link>
+            </div>
             <div className="page-header">
                 <h2>Saved 🔖</h2>
                 <p>Everything you&apos;ve bookmarked — organized by type.</p>

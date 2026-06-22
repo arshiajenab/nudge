@@ -61,43 +61,30 @@ export default async function Overview() {
             </div>
             <div className="recent-activity-row">
                 <div className="dash-card">
-                    <div className="dash-card-header">
-                        <span className="dash-card-title">Saved items</span>
-                        <Link
-                            href={"/panel/saved"}
-                            className="dash-card-action"
-                        >
+                    <Link href={"/panel/saved"} className="dash-card-action">
+                        <div className="dash-card-header">
+                            <span
+                                className="dash-card-title"
+                                style={{ fontSize: "25px" }}
+                            >
+                                Saved 🔖
+                            </span>
                             View All →
-                        </Link>
-                    </div>
-                    <div className="history-item">
-                        <div
-                            className="history-dot"
-                            style={{ background: "var(--purple)" }}
-                        ></div>
-                        <div className="history-text">
-                            let&#39;s look at your saved ones
                         </div>
-                        <span className="history-type tag-purple">open</span>
-                    </div>
+                    </Link>
                 </div>
                 <div className="dash-card">
-                    <div className="dash-card-header">
-                        <span className="dash-card-title">Settings</span>
-                        <Link
-                            href={"/panel/settings"}
-                            className="dash-card-action"
-                        >
-                            Go To Settings →
-                        </Link>
-                    </div>
-                    <div className="history-item">
-                        <div
-                            className="history-dot"
-                            style={{ background: "var(--purple)" }}
-                        ></div>
-                        <div className="history-text">Change Username</div>
-                    </div>
+                    <Link href={"/panel/settings"} className="dash-card-action">
+                        <div className="dash-card-header">
+                            <span
+                                className="dash-card-title"
+                                style={{ fontSize: "25px" }}
+                            >
+                                Settings⚙️
+                            </span>
+                            View All →
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

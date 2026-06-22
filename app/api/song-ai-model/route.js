@@ -12,10 +12,10 @@ export async function POST(req) {
     const completion = await openai.responses.create({
         model: "openai/gpt-oss-120b:free",
         reasoning: { effort: "low" },
-        instructions: `You are a music recommendation expert. Your sole purpose is to output a valid JSON array of exactly 50 songs.
+        instructions: `You are a music recommendation expert. Your sole purpose is to output a valid JSON array of exactly 7 songs.
 
 ### STRICT RULES:
-1. LANGUAGE: Detect the language of the user's prompt. Respond with all text in that language (Default: English).
+1. LANGUAGE: Detect the language of the user's prompt. Respond with all text in that language my users maybe persian (Default: English).
 2. OUTPUT FORMAT: Respond ONLY with the raw JSON array. 
 3. NO FORMATTING: Do NOT use markdown do NOT use code blocks, do NOT use \n, do NOT use slashes, and do NOT provide any explanations or conversational text before or after the JSON.
 4. ESCAPING: Do not use double quotes inside the string values. Use single quotes if needed (e.g., "reason": "It's a great song").

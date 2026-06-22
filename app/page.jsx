@@ -15,11 +15,11 @@ export default function Home() {
                     powered by AI, tailored to you.
                 </p>
                 <div className="hero-btns">
-                    <Link href={"/login"} className="btn-primary">Get started free →</Link>
+                    <Link href={"/panel"} className="btn-primary">Get started free →</Link>
                     <Link href={"/panel"} className="btn-ghost">See it in action</Link>
                 </div>
             </section>
-            <section className="bento-section">
+            <section className="bento-section" style={{marginTop:"-80px"}}>
                 <div className="section-label">✦ What Nudge does</div>
                 <div className="section-title">
                     Three tools.
@@ -85,70 +85,6 @@ export default function Home() {
                                     <div className="mock-song-artist">
                                         Harry Styles · indie pop
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bento-card col-5 card-teal">
-                        <div className="accent-bar"></div>
-                        <span className="card-tag tag-teal">
-                            💻 code review
-                        </span>
-                        <h3>Get your code scored</h3>
-                        <p>
-                            Paste code, get an AI score + improvement tips
-                            instantly.
-                        </p>
-                        <div className="mock-score">87</div>
-                        <div
-                            style={{
-                                fontSize: "12px;color:var(--muted)",
-                                fontFamily: "var(--mono)",
-                            }}
-                        >
-                            out of 100 — great code
-                        </div>
-                        <div className="mock-bars">
-                            <div className="mock-bar-row">
-                                <span className="mock-bar-label">
-                                    readability
-                                </span>
-                                <div className="mock-bar-track">
-                                    <div
-                                        className="mock-bar-fill"
-                                        style={{
-                                            width: "90%",
-                                            background: "var(--teal)",
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                            <div className="mock-bar-row">
-                                <span className="mock-bar-label">
-                                    performance
-                                </span>
-                                <div className="mock-bar-track">
-                                    <div
-                                        className="mock-bar-fill"
-                                        style={{
-                                            width: "80%",
-                                            background: "var(--purple)",
-                                        }}
-                                    ></div>
-                                </div>
-                            </div>
-                            <div className="mock-bar-row">
-                                <span className="mock-bar-label">
-                                    best practices
-                                </span>
-                                <div className="mock-bar-track">
-                                    <div
-                                        className="mock-bar-fill"
-                                        style={{
-                                            width: "85%",
-                                            background: "var(--pink)",
-                                        }}
-                                    ></div>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +178,7 @@ export default function Home() {
                                 Free forever. No credit card. Just vibes.
                             </div>
                         </div>
-                        <Link href={"/login"} className="btn-primary">
+                        <Link href={"/panel"} className="btn-primary">
                             Start for free →
                         </Link>
                     </div>

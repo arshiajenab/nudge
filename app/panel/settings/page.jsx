@@ -10,6 +10,19 @@ export default async function page({ searchParams }) {
     const { tab } = await searchParams;
     return (
         <div id="settings" className="dash-section">
+            <div style={{ marginBottom: "16px" }}>
+                <Link
+                    href="/panel"
+                    style={{
+                        color: "inherit",
+                        textDecoration: "none",
+                        fontSize: "14px",
+                        opacity: 0.7,
+                    }}
+                >
+                    ← back to panel
+                </Link>
+            </div>
             <div className="page-header">
                 <h2>Settings ⚙️</h2>
                 <p>Manage your account and preferences.</p>
