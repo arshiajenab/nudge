@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
-import { jwtVerify } from "jose"; // lightweight, Edge-compatible JWT lib
-
+import { jwtVerify } from "jose";
 export async function middleware(request) {
-    console.log("hello");
     const token = request.cookies.get("token")?.value;
 
     if (!token) {
