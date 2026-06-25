@@ -21,7 +21,7 @@ export default async function Overview() {
     return (
         <div id="dash-home" className="dash-section">
             <div className="dash-greeting">
-                <h2>Good evening, Arshia 👋</h2>
+                <h2>Welcome Back, {user.name} 👋</h2>
                 <p>Here&#39;s what&#39;s been happening on your Nudge.</p>
             </div>
             <div className="dash-stats">

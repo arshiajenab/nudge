@@ -143,7 +143,7 @@ export default function Game() {
                                       background: backgrounds(),
                                   }}
                               >
-                                  🎵
+                                  🎯
                               </div>
 
                               <div className="result-info">
@@ -166,10 +166,6 @@ export default function Game() {
                                       <Sk w="100%" h="15px" r="5px" />
                                   </div>
                               </div>
-
-                              <div className="result-actions">
-                                  <button className="save-btn">+ Save</button>
-                              </div>
                           </div>
                       ))
                     : results?.response?.map((res, index) => {
@@ -183,51 +179,66 @@ export default function Game() {
                                   >
                                       🎯
                                   </div>
+                                  <div
+                                      style={{
+                                          display: "flex",
+                                          gap: "16px",
+                                          alignItems: "flex-start",
+                                          width: "100%",
+                                          important: true,
+                                      }}
+                                  >
+                                      <div
+                                          className="result-info"
+                                          style={{ flex: 1, important: true }}
+                                      >
+                                          <div className="result-title">
+                                              {res.title}
+                                          </div>
+                                          <div className="result-sub">
+                                              {res.studio} · {res.genre} ·{" "}
+                                              {res.supported}
+                                          </div>
 
-                                  <div className="result-info">
-                                      <div className="result-title">
-                                          {res.title}
-                                      </div>
-                                      <div className="result-sub">
-                                          {res.studio} · {res.genre} ·{" "}
-                                          {res.supported}
-                                      </div>
+                                          <div className="result-why">
+                                              {res.reason}
+                                          </div>
 
-                                      <div className="result-why">
-                                          {res.reason}
+                                          <div
+                                              style={{
+                                                  display: "flex",
+                                                  gap: "6px",
+                                                  marginTop: "8px",
+                                                  alignItems: "flex-start",
+                                                  width: "100%",
+                                                  important: true,
+                                              }}
+                                          >
+                                              <span
+                                                  className="card-tag tag-pink"
+                                                  style={{ margin: 0 }}
+                                              >
+                                                  {res.tag}
+                                              </span>
+                                              <span
+                                                  className="card-tag tag-teal"
+                                                  style={{ margin: 0 }}
+                                              >
+                                                  {res.tag2}
+                                              </span>
+                                          </div>
                                       </div>
 
                                       <div
-                                          style={{
-                                              display: "flex",
-                                              gap: "6px",
-                                              marginTop: "8px",
-                                          }}
+                                          className={`result-actions`}
+                                          onClick={() => setDisableSave(true)}
                                       >
-                                          <span
-                                              className="card-tag tag-pink"
-                                              style={{ margin: 0 }}
-                                          >
-                                              {res.tag}
-                                          </span>
-                                          <span
-                                              className="card-tag tag-teal"
-                                              style={{ margin: 0 }}
-                                          >
-                                              {res.tag2}
-                                          </span>
+                                          <Save
+                                              res={res}
+                                              method={"game"}
+                                              disableSave={disableSave}
+                                          />
                                       </div>
-                                  </div>
-
-                                  <div
-                                      className={`result-actions`}
-                                      onClick={() => setDisableSave(true)}
-                                  >
-                                      <Save
-                                          res={res}
-                                          method={"game"}
-                                          disableSave={disableSave}
-                                      />
                                   </div>
                               </div>
                           );

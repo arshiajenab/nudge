@@ -42,7 +42,6 @@ export default function LoginModule() {
             }
             setError("");
             router.push("/panel");
-            router.refresh();
         } catch (err) {
             setError("Try Again");
         } finally {
@@ -60,7 +59,7 @@ export default function LoginModule() {
                     return setError("Email is invalid");
                 if (zodResult.error.issues[0].path[0] == "password")
                     return setError("Password is invalid");
-                return setError("Invalid input")
+                return setError("Invalid input");
             }
 
             const res = await fetch("/api/login", {
@@ -79,7 +78,6 @@ export default function LoginModule() {
             }
             setError("");
             router.push("/panel");
-            router.refresh();
         } catch (err) {
             setError("Try Again");
         } finally {
